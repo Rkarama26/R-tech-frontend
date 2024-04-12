@@ -36,3 +36,14 @@
     transform: rotate(360deg);
   }
 }
+
+.carousel-container {
+  width: 100%;
+  height: 400px; /* Set a fixed height for the carousel */
+}
+
+.panoramic-image {
+  width: 100%;
+  height: 80%;
+  object-fit: cover; /* Ensure the image covers the entire area */
+}
