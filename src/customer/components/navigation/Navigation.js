@@ -5,117 +5,100 @@ import { Bars3Icon, MagnifyingGlassIcon, ShoppingBagIcon, XMarkIcon } from '@her
 const navigation = {
   categories: [
     {
-      id: 'women',
-      name: 'Women',
+      id: 'Electronics',
+      name: 'Electronics',
       featured: [
         {
           name: 'New Arrivals',
           href: '#',
-          imageSrc: 'https://tailwindui.com/img/ecommerce-images/mega-menu-category-01.jpg',
+          imageSrc: '/home_images/Featured/sim900.jpeg ',
           imageAlt: 'Models sitting back to back, wearing Basic Tee in black and bone.',
         },
         {
           name: 'Basic Tees',
           href: '#',
-          imageSrc: 'https://tailwindui.com/img/ecommerce-images/mega-menu-category-02.jpg',
+          imageSrc: '/home_images/Featured/fs-ct6b 6-channel.jpeg',
           imageAlt: 'Close up of Basic Tee fall bundle with off-white, ochre, olive, and black tees.',
         },
       ],
       sections: [
         {
-          id: 'clothing',
-          name: 'Clothing',
+          id: 'Development boards',
+          name: 'Development boards',
           items: [
-            { name: 'Tops', href: '#' },
-            { name: 'Dresses', href: '#' },
-            { name: 'Pants', href: '#' },
-            { name: 'Denim', href: '#' },
-            { name: 'Sweaters', href: '#' },
-            { name: 'T-Shirts', href: '#' },
-            { name: 'Jackets', href: '#' },
-            { name: 'Activewear', href: '#' },
-            { name: 'Browse All', href: '#' },
+            { name: 'Arduino', href: '#' },
+            { name: 'Raspberry-Pi', href: '#' },
+            { name: 'ESP boards', href: '#' },
+            { name: 'STM', href: '#' },
+            { name: 'Beaglebone', href: '#' },
           ],
         },
         {
-          id: 'accessories',
-          name: 'Accessories',
+          id: 'Sensors',
+          name: 'Sensors',
           items: [
-            { name: 'Watches', href: '#' },
-            { name: 'Wallets', href: '#' },
-            { name: 'Bags', href: '#' },
-            { name: 'Sunglasses', href: '#' },
-            { name: 'Hats', href: '#' },
-            { name: 'Belts', href: '#' },
+            { name: 'Temperature sensor', href: '#' },
+            { name: 'Prximity sensor', href: '#' },
+            { name: 'Gas sensor', href: '#' },
+            { name: 'Light sesor', href: '#' },
+            { name: 'Motion sensor', href: '#' },
           ],
         },
         {
-          id: 'brands',
-          name: 'Brands',
+          id: 'Robotics',
+          name: 'Robotics',
           items: [
-            { name: 'Full Nelson', href: '#' },
-            { name: 'My Way', href: '#' },
-            { name: 'Re-Arranged', href: '#' },
-            { name: 'Counterfeit', href: '#' },
-            { name: 'Significant Other', href: '#' },
+            { name: 'Robot DIY kit', href: '#' },
+            { name: 'Chassis', href: '#' },
+            { name: 'Motors', href: '#' },
+            { name: 'Propellers', href: '#' },
+            { name: 'Motor Controller', href: '#' },
+            { name: 'Transreciever', href: '#' },
           ],
         },
       ],
     },
     {
-      id: 'men',
-      name: 'Men',
+      id: 'Stationary',
+      name: 'Stationary',
       featured: [
         {
           name: 'New Arrivals',
           href: '#',
-          imageSrc: 'https://tailwindui.com/img/ecommerce-images/product-page-04-detail-product-shot-01.jpg',
+          imageSrc: '/home_images/Featured/Carbon-fiber-Filament.jpeg',
           imageAlt: 'Drawstring top with elastic loop closure and textured interior padding.',
         },
         {
           name: 'Artwork Tees',
           href: '#',
-          imageSrc: 'https://tailwindui.com/img/ecommerce-images/category-page-02-image-card-06.jpg',
+          imageSrc: '/home_images/Featured/Robotics-Gear-kit.jpeg',
           imageAlt:
             'Three shirts in gray, white, and blue arranged on table with same line drawing of hands and shapes overlapping on front of shirt.',
         },
       ],
       sections: [
         {
-          id: 'clothing',
-          name: 'Clothing',
+          id: '3D printing supplies',
+          name: '3D printing supplies',
           items: [
-            { name: 'Tops', href: '#' },
-            { name: 'Pants', href: '#' },
-            { name: 'Sweaters', href: '#' },
-            { name: 'T-Shirts', href: '#' },
-            { name: 'Jackets', href: '#' },
-            { name: 'Activewear', href: '#' },
-            { name: 'Browse All', href: '#' },
+            { name: 'Filaments', href: '#' },
+            { name: 'Nozzels', href: '#' },
+            { name: 'Print beds', href: '#' },
+            { name: 'Other', href: '#' },
           ],
         },
         {
-          id: 'accessories',
-          name: 'Accessories',
+          id: 'Other Accessories',
+          name: 'Other Accessories',
           items: [
-            { name: 'Watches', href: '#' },
-            { name: 'Wallets', href: '#' },
-            { name: 'Bags', href: '#' },
-            { name: 'Sunglasses', href: '#' },
-            { name: 'Hats', href: '#' },
-            { name: 'Belts', href: '#' },
+            { name: 'Cardboards', href: '#' },
+            { name: 'Stics & Strow', href: '#' },
+            { name: 'Gear & Pulleys', href: '#' },
+            { name: 'Tools', href: '#' },
+          
           ],
         },
-        {
-          id: 'brands',
-          name: 'Brands',
-          items: [
-            { name: 'Re-Arranged', href: '#' },
-            { name: 'Counterfeit', href: '#' },
-            { name: 'Full Nelson', href: '#' },
-            { name: 'My Way', href: '#' },
-          ],
-        },
+        
       ],
     },
   ],
@@ -124,7 +107,6 @@ const navigation = {
     { name: 'Stores', href: '#' },
   ],
 }
-
 function classNames(...classes) {
   return classes.filter(Boolean).join(' ')
 }
@@ -133,7 +115,8 @@ export default function Navigation() {
   const [open, setOpen] = useState(false)
 
   return (
-    <div className="bg-white">
+    
+    <div className="bg-white z-50 ">
       {/* Mobile menu */}
       <Transition.Root show={open} as={Fragment}>
         <Dialog as="div" className="relative z-40 lg:hidden" onClose={setOpen}>
@@ -216,7 +199,7 @@ export default function Navigation() {
                               {section.name}
                             </p>
                             <ul
-                              role="list"
+
                               aria-labelledby={`${category.id}-${section.id}-heading-mobile`}
                               className="mt-6 flex flex-col space-y-6"
                             >
@@ -275,7 +258,7 @@ export default function Navigation() {
         </Dialog>
       </Transition.Root>
 
-      <header className="relative bg-white">
+      <header className="relative bg-white z-20">
         <p className="flex h-10 items-center justify-center bg-indigo-600 px-4 text-sm font-medium text-white sm:px-6 lg:px-8">
           Get free delivery on orders over $100
         </p>
@@ -368,7 +351,7 @@ export default function Navigation() {
                                             {section.name}
                                           </p>
                                           <ul
-                                            role="list"
+
                                             aria-labelledby={`${section.name}-heading`}
                                             className="mt-6 space-y-6 sm:mt-4 sm:space-y-4"
                                           >
@@ -416,17 +399,7 @@ export default function Navigation() {
                   </a>
                 </div>
 
-                <div className="hidden lg:ml-8 lg:flex">
-                  <a href="#" className="flex items-center text-gray-700 hover:text-gray-800">
-                    <img
-                      src="https://tailwindui.com/img/flags/flag-canada.svg"
-                      alt=""
-                      className="block h-auto w-5 flex-shrink-0"
-                    />
-                    <span className="ml-3 block text-sm font-medium">CAD</span>
-                    <span className="sr-only">, change currency</span>
-                  </a>
-                </div>
+         
 
                 {/* Search */}
                 <div className="flex lg:ml-6">

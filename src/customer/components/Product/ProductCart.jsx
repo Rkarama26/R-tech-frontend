@@ -1,6 +1,7 @@
 import React from 'react';
-import './HomesectionCard.css';
-const HomeSectionCard = ({ product }) => {
+import "./ProductCart.css";
+
+const ProductCart = ({product}) => {
     return (
         <div className='productCart w-[15rem] m-3 transition-all cursor-pointer'>
             <div className='aspect-w-1 aspect-h-1'>
@@ -28,4 +29,4 @@ const HomeSectionCard = ({ product }) => {
     );
 }
 
-export default HomeSectionCard;
+export default ProductCart;

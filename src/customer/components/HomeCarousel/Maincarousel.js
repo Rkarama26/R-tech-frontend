@@ -5,7 +5,7 @@ import 'react-alice-carousel/lib/alice-carousel.css';
 
 const Maincarousel = () => {
 
-    const items = Maincarouseldata.map((item)=> <img className='cursor-pointer object-cover h-96 w-full'
+    const items = Maincarouseldata.map((item)=> <img className='cursor-pointer object-cover h-96 w-full z-10'
     role='presentation' src={item.image} alt=""/>)
 
 
@@ -16,9 +16,6 @@ return (
       autoPlay
       autoPlayInterval={1500}
       infinite
-
-
-
       />
     </div>
   );
