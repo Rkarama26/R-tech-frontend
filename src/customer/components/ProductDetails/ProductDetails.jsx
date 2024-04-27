@@ -196,9 +196,7 @@ export default function ProductDetails() {
 
                             <div className='flex space-x-5 items-center text-lg lg:text-xl text-gray-900 mt-6'>
 
-                                <p className='font-semibold'>
-                                    ₹199
-                                </p>
+                                <p className='font-semibold'> ₹199</p>
                                 <p className='opacity-50 line-through'>₹211</p>
                                 <p className='text-green-600 font-semibold'>5% off</p>
 
@@ -330,7 +328,7 @@ export default function ProductDetails() {
 
 
                                 <Box className="mt-5 space-y-1">
-                                    <Grid  container alignItems="center" gap={2}></Grid>
+                                    <Grid container alignItems="center" gap={2}></Grid>
 
                                     <Grid item xs={2}>
                                         <p>Excellent</p>
@@ -358,7 +356,7 @@ export default function ProductDetails() {
                                     </Grid>
                                     <Grid item xs={7}>
                                         <LinearProgress sx={{ bgcolor: "#d0d0d0", borderRadius: 4, height: 7 }}
-                                            variant='determinate' value={40} className='bg-yellow-300'  />
+                                            variant='determinate' value={40} className='bg-yellow-300' />
 
                                     </Grid>
                                     <Grid container alignItems="center" gap={2}></Grid>
@@ -393,12 +391,12 @@ export default function ProductDetails() {
 
                 {/* similar products */}
                 <section className='pt-10'>
-                <h1 className='py-5 text-x1 text-lg font-bold'>Similar Products</h1>
+                    <h1 className='py-5 text-x1 text-lg font-bold'>Similar Products</h1>
 
-                <div className='flex flex-wrap space-y-5'>
-                {Sensors.map((item)=><HomeSectionCard product={item} />)}
+                    <div className='flex flex-wrap space-y-5'>
+                        {Sensors.map((item) => <HomeSectionCard product={item} />)}
 
-                </div>
+                    </div>
 
                 </section>
 
