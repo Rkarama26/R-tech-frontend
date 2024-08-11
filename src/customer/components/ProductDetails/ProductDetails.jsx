@@ -10,6 +10,7 @@ import SupportAgentOutlinedIcon from '@mui/icons-material/SupportAgentOutlined';
 import ProductReviewCard from './ProductReviewCard';
 import { Sensors } from '../../../Data/Sensors';
 import HomeSectionCard from '../HomeSectionCard/HomeSectionCard';
+import { useNavigate } from 'react-router-dom';
 
 const product = {
 
@@ -98,7 +99,11 @@ function classNames(...classes) {
 export default function ProductDetails() {
 
     const [showFeatures, setShowFeatures] = useState(true);
+    const navigate = useNavigate();
 
+    const handleAddToCart = () => {
+        navigate("/cart")
+    }
 
     return (
         <div className="text-left bg-white lg:px-10">
@@ -241,7 +246,7 @@ export default function ProductDetails() {
 
                             <form className="mt-10">
 
-                                <button
+                                <button onClick={handleAddToCart}
                                     type="submit"
                                     className="mt-10 flex  items-center justify-center 
                                     rounded-md border border-transparent bg-indigo-600 px-8 

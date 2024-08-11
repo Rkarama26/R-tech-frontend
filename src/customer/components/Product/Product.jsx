@@ -63,7 +63,7 @@ export default function Product() {
                   </div>
 
                   {/* Filters */}
-                {/*  <form className="mt-4 border-t border-gray-200">
+                  {/*  <form className="mt-4 border-t border-gray-200">
 
 
                     {filters.map((section) => (
@@ -185,7 +185,7 @@ export default function Product() {
 
             <div className="grid grid-cols-1 gap-x-8 gap-y-10 lg:grid-cols-5">
               {/* Filters */}
-             {/* <form className="hidden lg:block">
+              {/* <form className="hidden lg:block">
 
 
                 {filters.map((section) => (
@@ -235,9 +235,9 @@ export default function Product() {
 
               {/* Product grid */}
               <div className="lg:col-span-5 w-full">
-              <div className='flex flex-wrap justify-center bg-white py-5'>
-            {Sensors.map((item)=><ProductCart product={item} />)}
-              </div>
+                <div className='flex flex-wrap justify-center bg-white py-5'>
+                  {Sensors.map((item) => <ProductCart product={item} />)}
+                </div>
 
               </div>
             </div>
