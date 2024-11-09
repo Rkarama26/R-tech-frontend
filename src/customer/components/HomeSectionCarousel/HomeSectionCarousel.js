@@ -40,8 +40,8 @@ const HomeSectionCarousel = ({data, sectionName}) => {
                         items={items}
                         
                         responsive={responsive}
-                        disableDotsControls
-                        // disableButtonsControls
+                       // disableDotsControls
+                         disableButtonsControls
                         onSlideChanged={syncActiveIndex}
                         activeIndex={activeIndex}
                     />

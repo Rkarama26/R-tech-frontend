@@ -1,5 +1,5 @@
 
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { StarIcon } from '@heroicons/react/20/solid'
 import { RadioGroup } from '@headlessui/react'
 import { Box, Grid, LinearProgress, Rating } from '@mui/material'
@@ -10,7 +10,9 @@ import SupportAgentOutlinedIcon from '@mui/icons-material/SupportAgentOutlined';
 import ProductReviewCard from './ProductReviewCard';
 import { Sensors } from '../../../Data/Sensors';
 import HomeSectionCard from '../HomeSectionCard/HomeSectionCard';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
+import { useDispatch, useSelector } from 'react-redux';
+import { findProductById } from '../../../State/Product/Action';
 
 const product = {
 
@@ -37,16 +39,7 @@ const product = {
 
     ],
 
-    sizes: [
-        { name: 'XXS', inStock: false },
-        { name: 'XS', inStock: true },
-        { name: 'S', inStock: true },
-        { name: 'M', inStock: true },
-        { name: 'L', inStock: true },
-        { name: 'XL', inStock: true },
-        { name: '2XL', inStock: true },
-        { name: '3XL', inStock: true },
-    ],
+
     description:
         'The Basic Tee 6-Pack allows you to fully express your vibrant personality with three grayscale options. Feeling adventurous? Put on a heather gray tee. Want to be a trendsetter? Try our exclusive colorway: "Black". Need to add an extra pop of color to your outfit? Our white tee has you covered.',
 
@@ -100,10 +93,22 @@ export default function ProductDetails() {
 
     const [showFeatures, setShowFeatures] = useState(true);
     const navigate = useNavigate();
+    const params = useParams();
+    const dispatch = useDispatch();
+    const { customerProduct } = useSelector((store) => store);
+
+
+    console.log('Current product state:', customerProduct);
+
 
     const handleAddToCart = () => {
         navigate("/cart")
     }
+
+    useEffect(() => {
+        const data = { productId: params.productId }
+        dispatch(findProductById(data))
+    }, [params.productId])
 
     return (
         <div className="text-left bg-white lg:px-10">
@@ -144,7 +149,7 @@ export default function ProductDetails() {
                     <div className="flex flex-col items-center">
                         <div className="overflow-hidden rounded-lg max-w-[30rem] max-h-[35rem]">
                             <img
-                                src={product.images[0].src}
+                                src={customerProduct.product?.imageUrl}
                                 alt={product.images[0].alt}
                                 className="h-full w-full object-cover object-center"
                             />
@@ -166,8 +171,9 @@ export default function ProductDetails() {
                     {/* Product info */}
                     <div className="lg:col-span-1 maxt-auto max-w-2xl px-4 pb-16 sm:px-6 lg:max-w-7xl lg:px-8">
                         <div className="lg:col-span-2">
-                            <h1 className="text-left text-lg lg:text-2xl font-bold text-gray-900">DHT11
-                                Temperature And Humidity Sensor Module with LED</h1>
+                            <h1 className="text-left text-lg lg:text-2xl font-bold text-gray-900">
+                                { customerProduct.product?.title}
+                            </h1>
                             <hr className="my-4 border-gray-200" />
 
                         </div>
@@ -177,14 +183,8 @@ export default function ProductDetails() {
                             <h2 className="sr-only">Product Specifications</h2>
                             <div className="text-left opacity-80 ">
                                 <ol className="list-inside mt-2 text-sm text-gray-800" style={{ listStyleType: 'decimal', paddingLeft: '1.5em' }}>
-                                    <li>The module can detect the surrounding environment of the humidity and temperature</li>
-                                    <li>High reliability and excellent long-term stability</li>
-                                    <li>The output from the digital output</li>
-                                    <li>Working voltage 3.3V-5V</li>
-                                    <li>Humidity measurement range: 20%-95% (0-50 degrees range)</li>
-                                    <li>Humidity measurement accuracy: ±5.0%RH</li>
-                                    <li>Temperature measurement range: 0 degrees -50 degrees</li>
-                                    <li>Temperature measurement accuracy: ±2.0degree</li>
+                                   
+                                    {customerProduct.product?.description}
                                 </ol>
                             </div>
 
@@ -199,11 +199,11 @@ export default function ProductDetails() {
                         <div className="mt-4 lg:row-span-3 lg:mt-0">
                             <h2 className="sr-only">Product information</h2>
 
-                            <div className='flex space-x-5 items-center text-lg lg:text-xl text-gray-900 mt-6'>
+                            <div className='flex space-x-5 items-center   text-gray-900 mt-6'>
 
-                                <p className='font-semibold'> ₹199</p>
-                                <p className='opacity-50 line-through'>₹211</p>
-                                <p className='text-green-600 font-semibold'>5% off</p>
+                                <p className='font-semibold text-lg'>₹{customerProduct.product?.discountedPrice}</p>
+                                <p className='opacity-50 line-through'>₹{customerProduct.product?.price}</p>
+                                <p className='text-green-600 font-semibold'>{customerProduct.product?.discountPercent }% off</p>
 
                             </div>
                             <div>

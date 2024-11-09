@@ -11,18 +11,23 @@ import { Route, BrowserRouter as Router, Routes } from 'react-router-dom';
 import Order from './customer/components/Order/Order';
 import OrderDetail from './customer/components/OrderDetails.jsx/OrderDetail';
 import CustomerRouters from './Routers/CustomerRouters';
+import { Helmet } from 'react-helmet';
 
 function App() {
   return (
     <div className="App">
-<Router>
+      <Helmet>
+        <title>R_tech</title>
+     {/*   <link rel="icon" type="image/x-icon" href="%PUBLIC_URL%/logo.ico" />  {/* Use if ICO */}
 
-    <Routes>
-         <Route path='/*' element={<CustomerRouters/>}></Route>
-    </Routes>
-</Router>
+      </Helmet>
 
-    
+      <Routes>
+        <Route path='/*' element={<CustomerRouters />}></Route>
+      </Routes>
+
+
+
     </div>
   );
 }

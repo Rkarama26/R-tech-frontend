@@ -1,10 +1,12 @@
-import { Fragment, useState } from 'react'
+import { Fragment, useEffect, useState } from 'react'
 import { Dialog, Popover, Tab, Transition } from '@headlessui/react'
 import { Bars3Icon, MagnifyingGlassIcon, ShoppingBagIcon, XMarkIcon } from '@heroicons/react/24/outline'
-import { useNavigate } from 'react-router-dom'
+import { useLocation, useNavigate } from 'react-router-dom'
 import { Avatar, Button, Menu, MenuItem } from '@mui/material'
 import { deepPurple } from '@mui/material/colors'
 import AuthModel from '../Auth/AuthModel'
+import { useDispatch, useSelector } from 'react-redux'
+import { getUser, logout } from '../../../State/Auth/Action'
 
 const navigation = {
   categories: [
@@ -121,8 +123,11 @@ export default function Navigation() {
   const navigate = useNavigate();
   const [searchOpen, setSearchOpen] = useState(false);
   const [cartOpen, setCartOpen] = useState(false);
-
   const [anchorEl, setAnchorEl] = useState(null);
+  const { auth } = useSelector(store => store);
+  const dispatch = useDispatch();
+  const jwt = localStorage.getItem("jwt");
+  const location = useLocation();
 
   const handleUserClick = (event) => {
     setAnchorEl(event.currentTarget);
@@ -148,9 +153,10 @@ export default function Navigation() {
   const handleCartClose = () => {
     setCartOpen(false);
   };
- 
+
   const handleOpen = () => {
     setOpenAuthModal(true);
+
   };
   const handleClose = () => {
     setOpenAuthModal(false);
@@ -159,8 +165,35 @@ export default function Navigation() {
 
   const handleCategoryClick = (category, section, item, close) => {
     navigate(`/${category.id}/${section.id}/${item.id}`);
+    console.log(category, section, item);
     close();
   };
+
+
+  useEffect(() => {
+    if (jwt) {
+
+      dispatch(getUser(jwt))
+    }
+  }, [jwt, auth.jwt])
+
+  useEffect(() => {
+
+    if (auth.user) {
+      handleClose()
+    }
+    if (location.pathname === "/login" || location.pathname === "/register") {
+      navigate(-1)
+    }
+
+  }, [auth.user])
+
+const handleLogOut=()=>{
+  dispatch(logout())
+  handleCloseUserMenu()
+  localStorage.clear();
+}
+
   return (
 
     <div className="bg-white z-50 ">
@@ -446,7 +479,7 @@ export default function Navigation() {
               <div className="ml-auto flex items-center">
                 <div className="hidden lg:flex lg:flex-1 lg:items-center lg:justify-end lg:space-x-6">
                   {/* User dropdown */}
-                  {false ? (
+                  {auth.user?.firstName ? (
 
                     <div>
                       <Avatar
@@ -459,6 +492,7 @@ export default function Navigation() {
                         }}
                       >
                         {/* Display user's initials or profile image */}
+                        {auth.user.firstName[0].toUpperCase()}
                       </Avatar>
 
                       <Menu
@@ -468,7 +502,7 @@ export default function Navigation() {
                       >
                         <MenuItem onClick={handleCloseUserMenu}>Profile</MenuItem>
                         <MenuItem onClick={() => navigate('/account/order')}>My Orders</MenuItem>
-                        <MenuItem onClick={handleCloseUserMenu}>Logout</MenuItem>
+                        <MenuItem onClick={handleLogOut}>Logout</MenuItem>
                       </Menu>
 
                     </div>

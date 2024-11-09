@@ -19,7 +19,7 @@ const Cart = () => {
                 </div>
 
                 <div className='px-5 sticky top-0 h-[100vh] mt-5 lg:mt-0 '>
-                    <div className='border text-left'>
+                    <div className='  text-left'>
                         <p className='uppercase font-bold opacity-60 pb-4'>Price details</p>
                         <hr />
                         <div className='space-y-3 font-semibold mb-10'>
