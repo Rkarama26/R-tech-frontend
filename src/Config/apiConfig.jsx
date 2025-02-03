@@ -1,7 +1,7 @@
 import axios from "axios";
 
 // apiConfig.js or similar
-export const API_BASE_URL = "http://localhost:8080"; // Make sure this is set to your backend URL
+export const API_BASE_URL = "http://localhost:8080"; // Make sure this is set to backend URL
 const jwt = localStorage.getItem("jwt")
 
 export const api = axios.create({

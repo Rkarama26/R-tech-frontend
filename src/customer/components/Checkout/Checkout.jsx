@@ -8,19 +8,22 @@ import Typography from '@mui/material/Typography';
 import { useLocation } from 'react-router-dom';
 import DeliveryAddressForm from './DeliveryAddressForm';
 import OrderSummary from './OrderSummary';
+import LoginForm from '../Auth/LoginForm';
 
 const steps = ['Login', 'Delivery Address', 'Order Summary', 'Payment'];
 
 function Checkout() {
   const location = useLocation();
   const querySearch = new URLSearchParams(location.search);
-  const initialStep = querySearch.get('step') ? parseInt(querySearch.get('step'), 10) : 0;
+  const initialStep = Math.max(0, Math.min(steps.length - 1, parseInt(querySearch.get('step'), 10) || 0));
 
   const [activeStep, setActiveStep] = useState(initialStep);
 
   useEffect(() => {
+
     querySearch.set('step', activeStep.toString());
     window.history.replaceState({}, '', `${location.pathname}?${querySearch.toString()}`);
+
   }, [activeStep, location, querySearch]);
 
   const handleNext = () => {
@@ -48,13 +51,13 @@ function Checkout() {
         {activeStep === steps.length ? (
           <React.Fragment>
             <Typography sx={{ mt: 2, mb: 1 }}>
-              All steps completed - you&apos;re finished
+              All steps completed - you &apos;re finished
             </Typography>
           </React.Fragment>
         ) : (
           <React.Fragment>
-            {/*<Typography sx={{ mt: 2, mb: 1 }}>Step {activeStep + 1}</Typography>*/}
-           
+           {/* <Typography sx={{ mt: 2, mb: 1 }}>Step {activeStep + 1}</Typography>*/}
+
             <Box sx={{ display: 'flex', flexDirection: 'row', pt: 2 }}>
               <Button className='opacity-30'
                 color="inherit"
@@ -68,7 +71,10 @@ function Checkout() {
             </Box>
 
             <div className='mt-10'>
-              {activeStep === 1 ? <DeliveryAddressForm /> : <OrderSummary />}
+              {activeStep === 0 && <LoginForm />}
+              {activeStep === 1 && <DeliveryAddressForm setActiveStep={setActiveStep} />}
+              {activeStep === 2 && <OrderSummary />}
+              {/* {activeStep === 3 && <PaymentForm />}  */}
             </div>
 
           </React.Fragment>

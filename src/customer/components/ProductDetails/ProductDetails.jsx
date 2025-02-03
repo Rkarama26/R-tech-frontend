@@ -13,6 +13,7 @@ import HomeSectionCard from '../HomeSectionCard/HomeSectionCard';
 import { useNavigate, useParams } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { findProductById } from '../../../State/Product/Action';
+import { addItemToCart } from '../../../State/Cart/Action.jsx';
 
 const product = {
 
@@ -102,6 +103,10 @@ export default function ProductDetails() {
 
 
     const handleAddToCart = () => {
+        const data = { productId: params.productId }
+        console.log("data_ ", data)
+        dispatch(addItemToCart(data))
+
         navigate("/cart")
     }
 
@@ -172,7 +177,7 @@ export default function ProductDetails() {
                     <div className="lg:col-span-1 maxt-auto max-w-2xl px-4 pb-16 sm:px-6 lg:max-w-7xl lg:px-8">
                         <div className="lg:col-span-2">
                             <h1 className="text-left text-lg lg:text-2xl font-bold text-gray-900">
-                                { customerProduct.product?.title}
+                                {customerProduct.product?.title}
                             </h1>
                             <hr className="my-4 border-gray-200" />
 
@@ -183,7 +188,7 @@ export default function ProductDetails() {
                             <h2 className="sr-only">Product Specifications</h2>
                             <div className="text-left opacity-80 ">
                                 <ol className="list-inside mt-2 text-sm text-gray-800" style={{ listStyleType: 'decimal', paddingLeft: '1.5em' }}>
-                                   
+
                                     {customerProduct.product?.description}
                                 </ol>
                             </div>
@@ -203,7 +208,7 @@ export default function ProductDetails() {
 
                                 <p className='font-semibold text-lg'>₹{customerProduct.product?.discountedPrice}</p>
                                 <p className='opacity-50 line-through'>₹{customerProduct.product?.price}</p>
-                                <p className='text-green-600 font-semibold'>{customerProduct.product?.discountPercent }% off</p>
+                                <p className='text-green-600 font-semibold'>{customerProduct.product?.discountPercent}% off</p>
 
                             </div>
                             <div>

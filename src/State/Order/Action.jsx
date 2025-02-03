@@ -3,23 +3,28 @@ import { CREATE_ORDER_FAILURE, CREATE_ORDER_REQUEST, CREATE_ORDER_SUCCESS, GET_O
 
 export const createOrder = (reqData) => async (dispatch) => {
     console.log("reqData", reqData);
+    const { address, navigate, setActiveStep } = reqData;
+
     dispatch({ type: CREATE_ORDER_REQUEST });
 
     try {
-        const { data } = await api.post(`/api/orders/`,
-            reqData.address,
-        );
+        const { data } = await api.post(`/api/orders/`, address);
+
         if (data.id) {
-            reqData.navigate({ search: `step=3&order_id=${data.id}` });
+            console.log("id is -- ", data.id);
+            navigate({ search: `?step=3&order_id=${data.id}` });
         }
+
         console.log("created order - ", data);
         dispatch({
             type: CREATE_ORDER_SUCCESS,
             payload: data,
         });
+        setActiveStep(3);
+
 
     } catch (error) {
-        console.log("catch error : ", error);
+       
         dispatch({
             type: CREATE_ORDER_FAILURE,
             payload:
@@ -38,7 +43,7 @@ export const getOrderById = (orderId) => async (dispatch) => {
 
     try {
 
-        const { data } = await api.get(`/api/orders/$(orderId)`,);
+        const { data } = await api.get(`/api/orders/${orderId}`);
 
         console.log("order by id: ", data);
         dispatch({
