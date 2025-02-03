@@ -1,4 +1,4 @@
-# 🚀 E-Commerce Platform for Robotics & Electronics Components  
+# 🚀 E-Commerce Platform for Robotics & Electronics  
 
 ## 📌 Project Overview  
 This full-stack e-commerce platform provides a **one-stop solution** for engineering students, hobbyists, and professionals to purchase **robotics parts, electronics components, and DIY project materials**. It features **secure authentication, product management, a user-friendly shopping experience, and seamless order processing**.
