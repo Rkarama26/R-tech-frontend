@@ -10,10 +10,13 @@ This full-stack e-commerce platform provides a **one-stop solution** for enginee
 - Redux (State Management)  
 
 ### **Backend**  
+ [backend repo]([URL](https://github.com/Rkarama26/R_tech))
+
 - Spring Boot  
 - Spring Security (JWT Authentication)  
 - Spring Data JPA  
-- MySQL  
+- MySQL
+ 
 
 ### **Other Integrations**  
 - Razorpay (Payment Gateway)  
