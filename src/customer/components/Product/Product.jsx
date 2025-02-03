@@ -1,16 +1,10 @@
-import { Fragment, useState, navigate, useEffect } from 'react'
+import { Fragment, useState, useEffect } from 'react'
 import { Dialog, Disclosure, Menu, Transition } from '@headlessui/react'
 import { XMarkIcon } from '@heroicons/react/24/outline'
 import ProductCart from './ProductCart'
 import { Sensors } from '../../../Data/Sensors';
 import { filters, singleFilter, sortOptions } from './FilterData'
-import {
-  ChevronDownIcon,
-  FunnelIcon,
-  MinusIcon,
-  PlusIcon,
-  Squares2X2Icon,
-} from "@heroicons/react/20/solid";
+import { ChevronDownIcon,FunnelIcon,MinusIcon,PlusIcon,Squares2X2Icon,} from "@heroicons/react/20/solid";
 import Radio from "@mui/material/Radio";
 import RadioGroup from "@mui/material/RadioGroup";
 import FormControlLabel from "@mui/material/FormControlLabel";
@@ -24,13 +18,7 @@ import { findProduct } from '../../../State/Product/Action';
 function classNames(...classes) {
   return classes.filter(Boolean).join(' ')
 }
-const handleSortChange = (value) => {
-  const searchParams = new URLSearchParams(window.location.search);
-  searchParams.set("sort", value);
-  const query = searchParams.toString();
-  //console.log(searchParams, value);
-  navigate({ search: `?${query}` });
-};
+
 
 const decodedQueryString = decodeURIComponent(window.location.search);
 const searchParams = new URLSearchParams(window.location.search);
@@ -53,6 +41,14 @@ export default function Product() {
   const location = useLocation();
   const dispatch = useDispatch();
   const { customerProduct } = useSelector((store) => store);
+
+  const handleSortChange = (value) => {
+    const searchParams = new URLSearchParams(window.location.search);
+    searchParams.set("sort", value);
+    const query = searchParams.toString();
+    //console.log(searchParams, value);
+    navigate({ search: `?${query}` });
+  };
   
   const { product } = useSelector(store => store)
 
