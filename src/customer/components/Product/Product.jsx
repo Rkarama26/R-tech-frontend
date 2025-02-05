@@ -22,8 +22,6 @@ function classNames(...classes) {
 
 const decodedQueryString = decodeURIComponent(window.location.search);
 const searchParams = new URLSearchParams(window.location.search);
-//const colorValue = searchParams.get("color");
-//const sizeValue = searchParams.get("size");
 const priceValue = searchParams.get("price");
 const discountValue = searchParams.get("discount");
 const sortValue = searchParams.get("sort");

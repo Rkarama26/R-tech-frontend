@@ -188,11 +188,11 @@ export default function Navigation() {
 
   }, [auth.user])
 
-const handleLogOut=()=>{
-  dispatch(logout())
-  handleCloseUserMenu()
-  localStorage.clear();
-}
+  const handleLogOut = () => {
+    dispatch(logout())
+    handleCloseUserMenu()
+    localStorage.clear();
+  }
 
   return (
 
@@ -315,15 +315,17 @@ const handleLogOut=()=>{
 
                 <div className="space-y-6 border-t border-gray-200 px-4 py-6">
                   <div className="flow-root">
-                    <a href="#" className="-m-2 block p-2 font-medium text-gray-900">
-                      Sign in
-                    </a>
+                    <Button
+                      onClick={handleOpen}
+                      className="-m-2 block p-2 font-medium text-gray-900">
+                      sign in
+                    </Button>
                   </div>
-                  <div className="flow-root">
-                    <a href="#" className="-m-2 block p-2 font-medium text-gray-900">
+                  {/* <div className="flow-root">
+                    <a href="/register" className="-m-2 block p-2 font-medium text-gray-900 " onClick={() => navigate("/cart")}>
                       Create account
                     </a>
-                  </div>
+                  </div> */}
                 </div>
 
                 <div className="border-t border-gray-200 px-4 py-6">
@@ -345,7 +347,7 @@ const handleLogOut=()=>{
 
       <header className="relative bg-white z-20">
         <p className="flex h-10 items-center justify-center bg-indigo-600 px-4 text-sm font-medium text-white sm:px-6 lg:px-8">
-          Get free delivery on orders over $100
+          Get free delivery on orders over ₹100
         </p>
 
         <nav aria-label="Top" className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">

@@ -6,15 +6,13 @@ const HomeSectionCard = ({ product }) => {
             <div className='aspect-w-1 aspect-h-1'>
                 <img className='object-cover w-full h-full' src={product.imageUrl} alt="" />
             </div>
-
             <div className='textPart bg-white p-3 '>
                 <div className="flex justify-center mb-2">
                     <p className='font-bold opacity-70'>{product.title}</p>
                 </div>
-
                 <div className='flex items-center space-x-2'>
                     <div>
-                        <p className='font-semibold'>{product.discountedPrice}</p>
+                        <p className='font-semibold'>₹{product.discountedPrice}</p>
                     </div>
                     <div>
                         <p className='line-through opacity-50'>{product.price}</p>
