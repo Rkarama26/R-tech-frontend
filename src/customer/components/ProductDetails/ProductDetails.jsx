@@ -106,14 +106,13 @@ export default function ProductDetails() {
         const data = { productId: params.productId }
         console.log("data_ ", data)
         dispatch(addItemToCart(data))
-
         navigate("/cart")
     }
 
     useEffect(() => {
         const data = { productId: params.productId }
         dispatch(findProductById(data))
-    }, [params.productId])
+    }, [dispatch, params.productId])
 
     return (
         <div className="text-left bg-white lg:px-10">

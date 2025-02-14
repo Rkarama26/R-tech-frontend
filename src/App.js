@@ -12,18 +12,20 @@ import Order from './customer/components/Order/Order';
 import OrderDetail from './customer/components/OrderDetails.jsx/OrderDetail';
 import CustomerRouters from './Routers/CustomerRouters';
 import { Helmet } from 'react-helmet';
+import AdminRouters from './Routers/AdminRouters';
 
 function App() {
   return (
     <div className="App">
       <Helmet>
         <title>R_tech</title>
-     {/*   <link rel="icon" type="image/x-icon" href="%PUBLIC_URL%/logo.ico" />  {/* Use if ICO */}
+        {/*   <link rel="icon" type="image/x-icon" href="%PUBLIC_URL%/logo.ico" />  {/* Use if ICO */}
 
       </Helmet>
 
       <Routes>
         <Route path='/*' element={<CustomerRouters />}></Route>
+        <Route path='/admin/*' element={<AdminRouters />}></Route>
       </Routes>
 
 

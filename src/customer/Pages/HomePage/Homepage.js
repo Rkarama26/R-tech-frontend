@@ -13,8 +13,9 @@ const Homepage = () => {
 
 
     useEffect(() => {
-        dispatch(findProductByCategory({ category: "sensors" })); // Change category as needed
+        dispatch(findProductByCategory({ category: "Electronics" })); // Change category as needed
     }, [dispatch]);
+ 
 
 
     return (
@@ -23,15 +24,20 @@ const Homepage = () => {
             <div className='space-y-10 py-20 flex flex-col justify-center px-5 lg:px-10'>
 
             {!loading && !error && products.length > 0 ? (
+                <HomeSectionCarousel data={products} sectionName={"You May Like"} />
+            ) : (
+                <p>No products available</p>
+            )}
+            {!loading && !error && products.length > 0 ? (
                 <HomeSectionCarousel data={products} sectionName={"Sensors"} />
             ) : (
                 <p>No products available</p>
             )}
                 
-                {/* <HomeSectionCarousel data={ArduinoBoards} sectionName={"You May Like"} />
+                <HomeSectionCarousel data={ArduinoBoards} sectionName={"You May Like"} />
                 <HomeSectionCarousel data={ArduinoBoards} sectionName={"Arduino Boards"} />
                 <HomeSectionCarousel data={Sensors} sectionName={"Sensors"} />
-                <HomeSectionCarousel data={ArduinoBoards} sectionName={"Motors"} /> */}
+                <HomeSectionCarousel data={ArduinoBoards} sectionName={"Motors"} />
 
             </div>
         </div>
