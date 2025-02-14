@@ -1,5 +1,5 @@
 import { api } from "../../Config/apiConfig";
-import { FIND_PRODUCT_BY_ID_FAILURE, FIND_PRODUCT_BY_ID_REQUEST, FIND_PRODUCT_BY_ID_SUCCESS, FIND_PRODUCTS_FAILURE, FIND_PRODUCTS_REQUEST, FIND_PRODUCTS_SUCCESS } from "./ActionType";
+import { FIND_PRODUCT_BY_CATEGORY_FAILURE, FIND_PRODUCT_BY_CATEGORY_REQUEST, FIND_PRODUCT_BY_CATEGORY_SUCCESS, FIND_PRODUCT_BY_ID_FAILURE, FIND_PRODUCT_BY_ID_REQUEST, FIND_PRODUCT_BY_ID_SUCCESS, FIND_PRODUCTS_FAILURE, FIND_PRODUCTS_REQUEST, FIND_PRODUCTS_SUCCESS } from "./ActionType";
 
 export const findProduct = (reqData) => async (dispatch) => {
     dispatch({ type: FIND_PRODUCTS_REQUEST })
@@ -54,4 +54,21 @@ export const findProductById = (reqData) => async (dispatch) => {
 
     }
 };
+
+export const findProductByCategory = (reqData) => async (dispatch) => {
+    dispatch({ type: FIND_PRODUCT_BY_CATEGORY_REQUEST });
+    const { category } = reqData;
+    console.log("Fetching products for category:", category);
+
+    try {
+        const { data } = await api.get(`/api/products/${category}`);
+        console.log("API Response Data:", data); // Debugging
+        
+        dispatch({ type: FIND_PRODUCT_BY_CATEGORY_SUCCESS, payload: data });
+    } catch (error) {
+        console.error("API Fetch Error:", error);
+        dispatch({ type: FIND_PRODUCT_BY_CATEGORY_FAILURE, payload: error.message });
+    }
+};
+
 
