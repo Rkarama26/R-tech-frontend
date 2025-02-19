@@ -12,11 +12,11 @@ import ViewListIcon from '@mui/icons-material/ViewList';
 import PlaylistAddIcon from '@mui/icons-material/PlaylistAdd';
 import AdminPanelSettingsIcon from '@mui/icons-material/AdminPanelSettings';
 import Dashboard from './components/Dashboard';
-import CreateProductForm from './components/CreateProductForm';
-import PrdouctsTable from './components/ProductsTable';
+
 import ProductsTable from './components/ProductsTable';
 import OrdersTable from './components/OrdersTable';
 import CustomersTable from './components/CustomersTable';
+import CreateProductForm from './components/CreateProduct/CreateProductForm';
 
 const menu = [
     { name: "Dashboard", path: "/admin", icon: <SpaceDashboardIcon /> },
@@ -77,15 +77,15 @@ const Admin = () => {
 
 
     return (
-        <div>
-            <div className='flex h-[100vh]  '>
+    
+            <div className='relative flex h-[100vh] '>
                 <CssBaseline />
 
-                <div className='w-[15%] border border-r-gray-500 h-full' >
+                <div className='w-[15%] border border-r-gray-500 h-full fixed top-0 ' >
                     {drawer}
                 </div>
 
-                <div className='w-[85%]'>
+                <div className='w-[85%] ml-[15%]'>
                     <Routes>
 
                         <Route path='/' element={<Dashboard />}> </Route>
@@ -100,7 +100,7 @@ const Admin = () => {
 
             </div>
 
-        </div>
+      
     );
 }
 
