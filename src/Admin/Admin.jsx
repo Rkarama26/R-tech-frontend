@@ -91,7 +91,7 @@ const Admin = () => {
                         <Route path='/' element={<Dashboard />}> </Route>
                         <Route path='/product/create' element={<CreateProductForm />}> </Route>
                         <Route path='/products' element={<ProductsTable />}> </Route>
-                        <Route path='/ordres' element={<OrdersTable />}> </Route>
+                        <Route path='/orders' element={<OrdersTable />}> </Route>
                         <Route path='/customers' element={<CustomersTable />}> </Route>
                     </Routes>
                 </div>
