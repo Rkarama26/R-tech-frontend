@@ -77,16 +77,16 @@ const adminOrderReducer = (state = initialState, action) => {
             return { ...state, loading: true };
         case DELETE_ORDERS_SUCCESS:
             return {
-                ...state, 
-                loading: false, 
+                ...state,
+                loading: false,
                 deletedOrder: action.payload
             };
         case DELETE_ORDERS_FAILURE:
-            return {...state, loading: false, error: action.payload};    
+            return { ...state, loading: false, error: action.payload };
 
 
         case SHIP_ORDERS_REQUEST:
-            return{
+            return {
                 ...state,
                 isLoading: true,
                 error: null,
@@ -99,14 +99,14 @@ const adminOrderReducer = (state = initialState, action) => {
 
             }
         case SHIP_ORDERS_FAILURE:
-            return{
+            return {
                 ...state,
                 isLoading: false,
-                shipped:action.payload
+                shipped: action.payload
             };
-            
+
         default:
-            return state;    
+            return state;
 
     }
 };
