@@ -81,17 +81,8 @@ export default function Product() {
       pageSize: 10,
       stock: stock
     }
-
-
     dispatch(findProduct(data))
-
-  }, [param.levelThree,
-    priceValue,
-    discountValue,
-    sortValue,
-    pageNumber,
-    stock
-  ])
+  }, [])
 
   return (
     <div className="bg-white -z-20">
